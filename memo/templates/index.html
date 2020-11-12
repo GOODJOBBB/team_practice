@@ -1,14 +1,40 @@
-찐 홈 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <title>메인</title>
+</head>
+
+<body>
+  <div class="header">
+    <div class="helper">
+        <div class="logo_home">
+          <span>GOOD </span><span class="logo1">JOB</span>
+        </div>
+    </div>
+  </div>
 
 
-*추후 개인, 기업 분할페이지 업로드 예정
+  <div class="box">
+    <div class="wrpper_user">
+      <button class="btn-1">
+        <a href="memo/user_home">개인회원</a>
+      </button>
+    </div>
+    <div class="wrpper_com">
+      <button>
+        <a href="memo/co_home">기업 페이지</a>
+      </button>
+    </div>
+  </div>
+</body>
 
-coming soon
+</html>
 
 
-<h1>
-<a href="memo/user_home">개인 페이지</a>
-</h1>
 
 
-!

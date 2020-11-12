@@ -25,6 +25,16 @@ def user_home(request):
 def user_sign_up(request):
     return render(request, 'user_sign_up.html')
 
+def co_home(request):
+    context = dict()
+    request.POST.get('mydata')
+    all_memo = Memo.objects.all()
+    context['all_memo'] = all_memo
+    return render(request, 'co_home.html',context)
+
+def co_sign_up(request):
+    return render(request, 'co_sign_up.html')
+
 def create(request):
     context=dict() 
     context['memoform'] = MemoForm() #우리가 준비한 빈 modelform을 생성해서 memoform이란 이름으로 넘깁니다.
