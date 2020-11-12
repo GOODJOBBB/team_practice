@@ -2,47 +2,111 @@
 {% load static %}  <!--static 요소들을 가져오기 위해서 load해줍니다.-->
 
 {% block extrahead %}
-<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/user_home.css' %}">
 <!-- 각 페이지별로 고유하게 들어갈 head tag를 입력해줍니다. -->
 {% endblock %}
 
 {% block title %} 
-일하잡
+굿잡 개인 메인
 {% endblock %}
 <!-- base.html에서 만들었던 title block부분에 각 페이지별로 다른 title을 입려해줄수 있습니다. -->
+
+{% block user_logo %} 
+<a href="{% url 'user_home' %}">
+  <span>GOOD </span><span class="logo1">JOB</span>
+</a>
+{% endblock %}
+
+
+
 
 {% block nav_profile %}
 <img src="{% static 'image/lion.jpg' %}" />
 {% endblock %}               
 
+{% block nav_name %}
+<p class="nav_name">user</p>
+{% endblock %}
+
+{% block nav_info %}
+<p class="user_login">
+  
+  <form method="POST">
+    <div class="int-area">
+        <label for="id">아이디</label>
+        <input type="text" name="id" id="id" autocomplete="off" required width="300px">
+    </div>
+
+    <div class="int-area">
+        <label for="pw">비밀번호</label>
+        <input type="password" name="pw" id="pw" autocomplete="off" required>
+
+    </div>
+
+    <div class="btn-area">
+        <button type="submit">LOGIN</button>
+    </div>
+
+</form>
+
+<a class="u_sign_up" href="{% url 'user_sign_up' %}"><button type="submit">회원가입</button></a>
+
+</p>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {% block contents %}
 <!-- 여기도 index.html 페이지에 고유하게 들어갈 내용을 block태그 안에 작성해주면 뼈대는 base.html을 가져오고
 안에 내용만 바꿔서 보여줄 수 있습니다. -->
-<h1>메인 페이지</h1>
+<h1>개인 메인 페이지</h1>
 
-<a href="{% url 'new' %}"> 
+<!-- <a href="{% url 'new' %}"> 
   <h2>메모하기</h2>
 </a>
 
 
 <a href="{% url 'create' %}"><h2>글쓰기</h2></a>  
-<!-- 글쓰기 버튼을 생성했습니다. -->
 
 <img src="{% static 'image/혁이.jpg' %}" />
-<!-- static요소인 image를 쓰는 방법입니다. -->
 
 {% for i in all_memo %}
 
 <a href="{% url 'detail' i.id %}"> 
-  <!-- url 뒤에 i.id를 붙여서 id값을 특정 글의 식별자로 사용합니다. -->
   <h1>{{i.title}}</h1> 
 </a>
 
-{% if i.pic %} <!--사진이 없으면 attribute 에러가뜨는데 사진이 있을때만 img tag를 쓰기 위한 if문(model에서 default값을 설정해줘도 된다)-->
+{% if i.pic %} 
 
 <p><img src="{{i.pic.url}}" alt="고양이사진"></p>
-<!-- media요소로, 기존에 가지고 있던 사진이 아닌 외부로 부터 받은 사진을 보여주는 부분 -->
 {%endif%}
 
 <p>{{i.desc}}</p>
@@ -50,7 +114,7 @@
 <hr />
 <hr />
 {%endfor%}
-
+ -->
 
 <!-- <form method="POST">
   {% csrf_token %}

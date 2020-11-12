@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from memo.views import index,second
+from memo.views import index
 from django.conf import settings #settings에 접근하기 위해 불러옴
 from django.conf.urls.static import static #static한 url을 만들어주기위해서 가져옴
 urlpatterns = [

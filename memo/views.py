@@ -15,10 +15,15 @@ def index(request):
     context['all_memo'] = all_memo
     return render(request, 'index.html',context)
 
-def second(request):
-    
-    return render(request, 'second.html')
+def user_home(request):
+    context = dict()
+    request.POST.get('mydata')
+    all_memo = Memo.objects.all()
+    context['all_memo'] = all_memo
+    return render(request, 'user_home.html',context)
 
+def user_sign_up(request):
+    return render(request, 'user_sign_up.html')
 
 def create(request):
     context=dict() 
