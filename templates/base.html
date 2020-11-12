@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    {% block extrahead %}
+    {% endblock %}
+
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+</head>
+
+<body>
+
+    <!-- <img src="{% static 'image/사양이.jpg' %}"> -->
+
+    <!-- 아래부터 기업 틀 -->
+
+    <!-- header -->
+    <div class="frame">
+        <div class="header">
+            <div class="helper">
+                <div class="logo_home">
+                    <span>GOOD </span><span class="logo1">JOB</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- container -->
+        <div class="container">
+            <!-- nav_left -->
+
+            {% block nav %}
+            <div class="nav">
+                <br>
+                <div class="pro_box">
+                    {% block nav_profile %}
+                    {% endblock %}               
+                </div>
+
+                <p class="nav_name">
+                    {% block nav_name %}
+                    {% endblock %}
+                </p>
+
+                <div class="nav_info">
+                    {% block nav_info %}
+                    {% endblock %}                
+                </div>
+
+                <p class="nav_title">
+                    {% block nav_title %}
+                    {% endblock %}                
+                </p>
+                <ul class="nav_list">
+                    {% block nav_list %}
+                    {% endblock %}                
+                </ul>
+
+                 <!-- footer -->
+                <div class="footer">
+                    <p class="copyright">copyright @MS_ensujeo</p>
+                </div>
+
+            </div>
+            {% endblock %}
+
+
+            <!-- content -->
+            <div class="content">
+                {% block contents %}
+                {% endblock %}            
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
