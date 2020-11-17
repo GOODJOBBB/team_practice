@@ -46,6 +46,7 @@
 </form>
 
 <a class="c_sign_up" href="{% url 'co_sign_up' %}"><button type="submit">회원가입</button></a>
+<a class="co_create" href="{% url 'co_create' %}"><button type="submit">글쓰기</button></a>
 
 </p>
 {% endblock %}
@@ -53,5 +54,31 @@
 
 
 {% block contents %}
+<!-- 여기도 index.html 페이지에 고유하게 들어갈 내용을 block태그 안에 작성해주면 뼈대는 base.html을 가져오고
+안에 내용만 바꿔서 보여줄 수 있습니다. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  <script src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+  <title>Document</title>
+</head>
+<body>
 <h1>기업 메인 페이지</h1>
+<div class="contents">
+  {% for i in all_memo %}
+  <div class="box">
+    <a href=""> </a>
+    {% if i.pic %}
+    <img src="{{i.pic.url}}" alt="logo">
+    {% endif %}
+    <a href="{% url 'co_detail' i.id %}"><h3>{{i.company}}</h3></a>
+    <p>{{i.etc}}</p>
+  </div>
+  {%endfor%}
+</div>
+</body>
+</html>
 {% endblock %}

@@ -7,7 +7,7 @@ class MemoForm(ModelForm):
 
     class Meta:
         model = Memo  #ModelForm의 대상 Model을 지정해줍니다.
-        fields = ("title","desc",'pic') # Modelform에서 보여줄 field를 명시적으로 보여주고
+        fields = ("company",'address','URL','pic',"telephone",'representative','business','volume','advantage','type','money','grade','diversification','career','time','content','etc',)  # Modelform에서 보여줄 field를 명시적으로 보여주고
         # fields = "__all__" #전체인경우에는 __all__로 대체할수있지만 명시적으로 다 적어주는 것도 좋습니다.
 
 
@@ -15,4 +15,4 @@ class BaboForm(ModelForm):
 
     class Meta:
         model = Memo
-        fields = ('title','desc','pic',)
+        fields = fields = ("company",'address','URL','pic',"telephone",'representative','business','volume','advantage','type','money','grade','diversification','career','time','content','etc',)

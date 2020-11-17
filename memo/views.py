@@ -35,6 +35,32 @@ def co_home(request):
 def co_sign_up(request):
     return render(request, 'co_sign_up.html')
 
+def co_create(request):
+    context=dict()
+    context['memoform'] = MemoForm()
+    if request.method =="POST":
+        myform = MemoForm(request.POST,request.FILES)
+        if myform.is_valid():
+            myform.save()
+            return redirect('co_home')
+        else:
+            context['memoform']=myform
+    return render(request, 'co_create.html',context)
+
+def co_detail(request, co_detail_id):
+    context={}
+    one_memo = Memo.objects.get(id=co_detail_id) #예를 들면 5번 id 글을 가져오겠다는것
+    
+    context['one_memo'] = one_memo
+    return render(request, 'co_detail.html', context)
+
+def user_detail(request, user_detail_id):
+    context={}
+    one_memo = Memo.objects.get(id=user_detail_id) #예를 들면 5번 id 글을 가져오겠다는것
+    
+    context['one_memo'] = one_memo
+    return render(request, 'user_detail.html', context)
+
 def create(request):
     context=dict() 
     context['memoform'] = MemoForm() #우리가 준비한 빈 modelform을 생성해서 memoform이란 이름으로 넘깁니다.
@@ -97,14 +123,14 @@ def update(request,update_id): #글의 수정이라는 것은 특정한 글(id�
 
         if tempform.is_valid(): #아래는 create와 같이 진행됩니다.
             tempform.save()
-            return redirect('detail',update_id)
+            return redirect('co_detail',update_id)
 
         else:
             context['baboform'] = tempform
 
-    return render(request,'new.html',context)
+    return render(request,'co_update.html',context)
 
 def delete(request, delete_id):
     one_memo = Memo.objects.get(id=delete_id) #특정한 객체를 가져오고
     one_memo.delete() #해당 객체를 delete()메서드를 이용해서 삭제해줍니다.
-    return redirect('index')
+    return redirect('co_home')
