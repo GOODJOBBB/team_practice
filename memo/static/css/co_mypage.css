@@ -1,0 +1,49 @@
+
+.info_btn{
+    float: center;
+    min-height: 25px;
+  
+    width: 70%;
+    background-color: rgb(255, 255, 255);
+
+}
+
+
+.enroll_btn{
+    float: center;
+    min-height: 25px;
+  
+    width: 70%;
+    background-color: rgb(255, 255, 255);
+
+}
+
+button:hover {
+    background-color: rgb(241, 130, 3);
+    color: #ffffff;
+  }
+
+
+button {
+    background: none;
+    border: 3px solid rgb(241, 130, 3);
+    border-radius: 5px;
+    color: rgb(83, 83, 83);
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 1em auto;
+    padding-top: 5px;
+    padding-bottom: 7px;
+    position: relative;
+    text-transform: uppercase;
+  }
+
+  
+button::before,
+button::after {
+  background: #fff;
+  content: '';
+  position: absolute;
+  z-index: -10;
+}

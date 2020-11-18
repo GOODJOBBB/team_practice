@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index,user_home,create,new,detail,update,delete,user_sign_up,co_home,co_sign_up,co_create,co_detail,user_detail
+from .views import index,user_home,create,new,detail,update,delete,user_sign_up,co_home,co_sign_up,co_create,co_detail,user_detail,co_mypage
 urlpatterns = [
     path('create/', create, name="create"), #create는 Memo와 관련된 기능이므로 Memo 앱 안에서 관리해주겠습니다.
     path('new/', new, name="new"),
@@ -13,5 +13,7 @@ urlpatterns = [
     path('co_create/', co_create, name="co_create"),
     path('co_detail/<int:co_detail_id>', co_detail, name="co_detail"),
     path('user_detail/<int:user_detail_id>', user_detail, name="user_detail"),
+    path('co_mypage/', co_mypage, name="co_mypage"),
+
 ]
 

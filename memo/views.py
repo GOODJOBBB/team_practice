@@ -32,6 +32,14 @@ def co_home(request):
     context['all_memo'] = all_memo
     return render(request, 'co_home.html',context)
 
+def co_mypage(request):
+    context = dict()
+    request.POST.get('mydata')
+    all_memo = Memo.objects.all()
+    context['all_memo'] = all_memo
+    return render(request, 'co_mypage.html',context)
+
+
 def co_sign_up(request):
     return render(request, 'co_sign_up.html')
 

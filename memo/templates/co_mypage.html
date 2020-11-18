@@ -1,15 +1,18 @@
-{% extends 'base.html' %} 
-{% load static %} 
+{% extends 'base.html' %}
+{% load static %}
 
 {% block extrahead %}
 <link rel="stylesheet" href="{% static 'css/co_mypage.css' %}">
+<script src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+
 {% endblock %}
 
-{% block title %} 
+{% block title %}
 굿잡 기업 마이페이지
 {% endblock %}
 
-{% block user_logo %} 
+{% block user_logo %}
 <a href="{% url 'co_home' %}">
   <span>GOOD </span><span class="logo1">JOB</span>
 </a>
@@ -18,7 +21,7 @@
 
 {% block nav_profile %}
 <img src="{% static 'image/lion.jpg' %}" />
-{% endblock %}               
+{% endblock %}
 
 {% block nav_name %}
 <p class="nav_name">MS_기업</p>
@@ -27,16 +30,16 @@
 {% block nav_info %}
 
 <a class="co_upload" href="">
-    <button class="info_btn">
-        정보수정
-    </button>
+  <button class="info_btn">
+    정보수정
+  </button>
 </a>
 
 
 <a class="co_upload" href="">
-    <button class="enroll_btn">
-        공고 등록
-    </button>
+  <button class="enroll_btn">
+    공고 등록
+  </button>
 </a>
 
 {% endblock %}
@@ -44,19 +47,25 @@
 
 {% block contents %}
 <div class="cont">
-    <h1 class="con_name">기업공고 현황</h1>
-    <h2 class="enroll_title">
-        공고 1 - 멋사 개발자 모집 
-         <!-- 공고 디테일페이지 연결  -->
-    </h2>
-    <div class="con_box">
-        {% for i in all_memo %}
+  <h1 class="con_name">기업공고 현황</h1>
 
-        <a href="{% url 'detail' i.id %}"> 
-          <h1>{{i.title}}</h1> 
-        </a>
-        <!-- 지원자 이름에 상세 이력서페이지 연결 -->
-        {%endfor%}            
-    </div>
+  <!-- 공고 타이틀 -->
+  <div>
+    {% for i in all_memo %}
+    <h2 class="enroll_title">
+      공고{{i.id}}: <a href="{% url 'co_detail' i.id %}">{{i.etc}}</a>
+    </h2>
+    {%endfor%}
+
+  </div>
+  <div class="con_box">
+    {% for i in all_memo %}
+
+    <a href="{% url 'detail' i.id %}">
+      <h1>{{i.title}}</h1>
+    </a>
+    <!-- 지원자 이름에 상세 이력서페이지 연결 -->
+    {%endfor%}
+  </div>
+  {% endblock %}
 </div>
-{% endblock %}
