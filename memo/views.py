@@ -50,7 +50,7 @@ def co_create(request):
         myform = MemoForm(request.POST,request.FILES)
         if myform.is_valid():
             myform.save()
-            return redirect('co_home')
+            return redirect('co_mypage')
         else:
             context['memoform']=myform
     return render(request, 'co_create.html',context)

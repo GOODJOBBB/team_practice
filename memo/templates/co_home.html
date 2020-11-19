@@ -17,7 +17,7 @@
 
 
 {% block nav_profile %}
-<img src="{% static 'image/lion.jpg' %}" />
+<img class="pro_box" src="{% static 'image/lion.jpg' %}" />
 {% endblock %}               
 
 {% block nav_name %}
@@ -44,6 +44,23 @@
     </div>
 
 </form>
+
+
+{% if user.is_authenticated %}
+<span>
+    사용자({{user}})
+</span>
+
+<a href="{% url 'co_logout' %}">로그아웃</a>
+
+{%else%}
+<a href="{% url 'co_signup' %}">회원가입</a>
+<a href="{% url 'login' %}">로그인</a>
+
+{%endif%}
+
+
+
 
 <a class="c_sign_up" href="{% url 'co_sign_up' %}"><button type="submit">회원가입</button></a>
 <a class="co_create" href="{% url 'co_create' %}"><button type="submit">글쓰기</button></a>

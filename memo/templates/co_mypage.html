@@ -13,18 +13,32 @@
 {% endblock %}
 
 {% block user_logo %}
-<a href="{% url 'co_home' %}">
+<a href="{% url 'co_mypage' %}">
   <span>GOOD </span><span class="logo1">JOB</span>
 </a>
 {% endblock %}
 
 
 {% block nav_profile %}
-<img src="{% static 'image/lion.jpg' %}" />
+<img class="pro_box" src="{% static 'image/lion.jpg' %}" />
 {% endblock %}
 
 {% block nav_name %}
 <p class="nav_name">MS_기업</p>
+
+{% if user.is_authenticated %}
+<span>
+    사용자({{user}})
+</span>
+
+<a href="{% url 'logout' %}">로그아웃</a>
+
+{%else%}
+<a href="{% url 'signup' %}">회원가입</a>
+<a href="{% url 'login' %}">로그인</a>
+
+{%endif%}
+
 {% endblock %}
 
 {% block nav_info %}
@@ -36,11 +50,12 @@
 </a>
 
 
-<a class="co_upload" href="">
-  <button class="enroll_btn">
+<a class="co_upload" href="{% url 'co_create' %}">
+  <button class="enroll_btn" type="submit">
     공고 등록
   </button>
 </a>
+
 
 {% endblock %}
 

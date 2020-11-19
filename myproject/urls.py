@@ -22,6 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="index"),
     path('memo/',include('memo.urls')),
+    path('accounts/',include('accounts.urls')), 
+
   #memo앱과 관련된 url은 memo 앱 밑에 있는 urls.py에서 관리해줍시다.
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT) 
 # 쉽게 이해를 해보자면 기존에 있는 url규칙들에 새로운 규칙을 추가해주는건데
