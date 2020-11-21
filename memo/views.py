@@ -141,4 +141,4 @@ def update(request,update_id): #글의 수정이라는 것은 특정한 글(id�
 def delete(request, delete_id):
     one_memo = Memo.objects.get(id=delete_id) #특정한 객체를 가져오고
     one_memo.delete() #해당 객체를 delete()메서드를 이용해서 삭제해줍니다.
-    return redirect('co_home')
+    return redirect('co_mypage')

@@ -67,10 +67,15 @@
   <!-- 공고 타이틀 -->
   <div>
     {% for i in all_memo %}
+
+  
+
     <h2 class="enroll_title">
-      공고{{i.id}}: <a href="{% url 'co_detail' i.id %}">{{i.etc}}</a>
+      공고{{ forloop.counter }}: <a href="{% url 'co_detail' i.id %}">{{i.etc}}</a>
     </h2>
     {%endfor%}
+
+
 
   </div>
   <div class="con_box">

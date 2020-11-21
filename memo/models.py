@@ -25,4 +25,4 @@ class Memo(models.Model):
     modified_at = models.DateTimeField('수정날짜', auto_now=True)#수정할때마다 바뀜
 
     def __str__(self):
-        return self.title
+        return self.company
