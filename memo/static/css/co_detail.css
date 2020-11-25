@@ -16,10 +16,11 @@
 }
 
 .update_btn ,.delete_btn{
-    float: center;
-    min-height: 25px;
-  
-    width: 30%;
+    display: inline-block;
+    float: right;
+    min-height: 10px;
+    margin-left: 10px;
+    width: 20%;
     background-color: rgb(255, 255, 255);
 }
 
@@ -100,6 +101,7 @@ h3{
     border-spacing: 2px;
     border-color: grey;
 }
+
 
 .tit_padding15{
     font-size: 20px;

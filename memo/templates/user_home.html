@@ -105,9 +105,10 @@
     {% for i in all_memo %}
     <div class="box">
       <a  href=""> </a>
-      {% if i.pic %}
-      <img src="{{i.pic.url}}" alt="logo">
-      {% endif %}
+
+      <img src="{% if i.pic %} {{i.pic.url}} {% else %} {% static 'image/lion.jpg' %} {% endif %}"  alt="logo">
+
+
       <a href="{% url 'user_detail' i.id %}"><h3>{{i.company}}</h3></a>
       <p>{{i.etc}}</p>
     </div>
