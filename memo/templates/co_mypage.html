@@ -28,7 +28,7 @@
 
 {% if user.is_authenticated %}
 <span>
-    사용자({{user}})
+  사용자({{user}})
 </span>
 
 <a href="{% url 'logout' %}">로그아웃</a>
@@ -66,9 +66,9 @@
 
   <!-- 공고 타이틀 -->
   <div>
-    {% for i in all_memo %}
+    {% for i in my_gongo %}
 
-  
+
 
     <h2 class="enroll_title">
       공고{{ forloop.counter }}: <a href="{% url 'co_detail' i.id %}">{{i.etc}}</a>
@@ -79,7 +79,7 @@
 
   </div>
   <div class="con_box">
-    {% for i in all_memo %}
+    {% for i in my_gongo %}
 
     <a href="{% url 'detail' i.id %}">
       <h1>{{i.title}}</h1>
