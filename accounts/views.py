@@ -24,3 +24,6 @@ def co_signup(request):
     context['userForm'] = UserCreationForm()
 
     return render(request, 'registration/co_signup.html',context)
+
+# @login_required
+# def userinfo(request):

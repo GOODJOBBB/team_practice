@@ -35,8 +35,10 @@ def co_home(request):
 def co_mypage(request):
     context = dict()
     request.POST.get('mydata')
-    all_memo = Memo.objects.all()
-    context['all_memo'] = all_memo
+    logined_user = request.user #기업
+    # tmp_user = "123"
+    my_gongo = Memo.objects.filter(company="멋사")
+    context['my_gongo'] = my_gongo
     return render(request, 'co_mypage.html',context)
 
 

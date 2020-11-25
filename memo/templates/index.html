@@ -26,9 +26,15 @@
       </button>
     </div>
     <div class="wrpper_com">
+      {% if user.is_authenticated %}
+      <button>
+        <a href="memo/co_mypage">기업회원</a>
+      </button>
+      {% else %}
       <button>
         <a href="accounts/login">기업회원</a>
       </button>
+      {% endif %}
     </div>
   </div>
 </body>
