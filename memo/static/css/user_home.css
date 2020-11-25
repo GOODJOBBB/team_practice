@@ -1,3 +1,4 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
 img {
     height: 200px;
     width:200px;
@@ -12,10 +13,9 @@ img {
 }
 
 .user_login{
-
 }
 
-.int-area{
+/* .int-area{
  display: inline-block;
  position: relative;
 }
@@ -27,4 +27,110 @@ img {
 .u_sign_up{
     display: inline-block;
     z-index: 2;
+} */
+
+#main {
+    /* position: absolute; */
+    position: relative;
+    top: 0;
+    /* left: 300px; */
+    width: 100%;
+    padding-left: 0px;
+    margin-top: 0px;
+    /* width: auto; */
+    height: 100%;
+    /* background-color: rgb(236, 221, 83); */
+    z-index: 8;
+}
+
+#main .contents {
+    margin: 0 20px;
+    /* min-width: 600px; */
+    width: 100%;
+    height: 100%;
+    /* background-color: gray; */
+    position: relative;
+}
+.contents:after {content:""; display: block; clear: both;}
+.contents .box {
+    float: left;
+    display: inline-block;
+    margin: 0 20px 20px 0;
+    max-width: 500px;
+    min-width: 200px;
+    width: 30%;
+    height: 280px;
+    border: 1px solid rgb(194, 194, 194);
+    background-color: white;
+    overflow: hidden;
+}
+
+.box img {
+    width: 100%;
+    height: 50%;
+    background-color: gray;
+}
+.box h3 {
+    border-bottom: 1px solid rgb(197, 197, 197);
+    padding: 5px;
+}
+.box p {
+    padding: 5px;
+}
+
+.enroll_btn{
+    float: center;
+    min-height: 25px;
+  
+    width: 70%;
+    background-color: rgb(255, 255, 255);
+}
+
+button:hover {
+    background-color: rgb(241, 130, 3);
+    color: #ffffff;
+  }
+
+
+button {
+    background: none;
+    border: 3px solid rgb(241, 130, 3);
+    border-radius: 5px;
+    color: rgb(83, 83, 83);
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 1em auto;
+    padding-top: 5px;
+    padding-bottom: 7px;
+    position: relative;
+    text-transform: uppercase;
+  }
+
+    
+button::before,
+button::after {
+  background: #fff;
+  content: '';
+  position: absolute;
+  z-index: -10;
+}
+
+#id, #pw{
+    width:180px;
+    height:25px;
+    border: 1px solid #999;
+    box-sizing:border-box;
+    margin-bottom: 10px;
+}
+.labelid{
+    font-size:14px;
+    color:#666;
+    margin-left:15px; margin-right:22px;
+}
+.labelpw{
+    font-size:14px;
+    color:#666;
+    margin-left:15px;
+    margin-right:8px;
 }

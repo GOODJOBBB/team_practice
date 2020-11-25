@@ -2,34 +2,66 @@
 {% load static %} 
 
 {% block extrahead %}
-<link rel="stylesheet" href="{% static 'css/co_home.css' %}">
+<link rel="stylesheet" href="{% static 'css/co_detail.css' %}">
+<script src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
 {% endblock %}
 {% block user_logo %} 
 <a href="{% url 'co_mypage' %}">
   <span>GOOD </span><span class="logo1">JOB</span>
 </a>
 {% endblock %}
+
+{% block nav_profile %}
+<img class="pro_box" src="{% static 'image/lion.jpg' %}" />
+{% endblock %}               
+
+{% block nav_name %}
+<p class="nav_name">user</p>
+{% endblock %}
+
+{% block nav_info %}
+<p class="user_login">
+  
+  <form method="POST">
+    <div class="int-area">
+        <label for="id" class="labelid">아이디</label>
+        <input type="text" name="id" id="id" autocomplete="off" required width="300px">
+    </div>
+
+    <div class="int-area">
+        <label for="pw" class="labelpw">비밀번호</label>
+        <input type="password" name="pw" id="pw" autocomplete="off" required>
+
+    </div>
+
+    <div class="btn-area">
+        <button class="enroll_btn" type="submit">LOGIN</button>
+    </div>
+
+</form>
+
+<a class="u_sign_up" href="{% url 'user_sign_up' %}">
+  <button class="enroll_btn" type="submit">회원가입</button>
+</a>
+
+</p>
+{% endblock %}
+
+
+{% block title %}
+굿잡 기업 글쓰기
+{% endblock %}
+
 {% block contents %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>글쓰기 페이지입니다.</title>
-</head>
-<body>
     <form method="POST" enctype="multipart/form-data">
     <div calss="container board info_company-group">
         {% csrf_token %}
-        <blockquote>
-            <h3>
+        <div class='block'>
+            <h1 class='Cinfo'>
                 //채용공고//
-            </h3>
-        </blockquote>
+            </h1>
+        </div>
         <div class="Cinfo_logo">
             <p><input type="file" name="pic"/></p>
         </div>
@@ -48,19 +80,19 @@
                 </colgroup>
                 <tbody>
                     <tr>
-                        <th>대표자명</th>
+                        <th class="th">대표자명</th>
                         <td><input type="text" name="representative"/></td>
-                        <th>전화번호</th>
+                        <th class="th">전화번호</th>
                         <td><input type="text" name="telephone"/></td>
                     </tr>
                     <tr>
-                        <th>근로자수</th>
+                        <th class="th">근로자수</th>
                         <td><input type="text" name="number"/></td>
-                        <th>설립일</th>
+                        <th class="th">설립일</th>
                         <td><input type="text" name="date"/></td>
                     </tr>
                     <tr>
-                        <th>업종</th>
+                        <th class="th">업종</th>
                         <td><input type="text" name="business"/></td>
                     </tr>
                 </tbody>
@@ -81,35 +113,35 @@
             </colgroup>
             <tbody>
                 <tr>
-                    <th>모집인원</th>
+                    <th class="th">모집인원</th>
                     <td><input type="text" name="volume"/></td>
-                    <th>복리후생</th>
+                    <th class="th"h>복리후생</th>
                     <td><input type="text" name="advantage"/></td>
                 </tr>
                 <tr>
-                    <th>모집직종</th>
+                    <th class="th">모집직종</th>
                     <td><input type="text" name="type"/></td>
-                    <th>급여</th>
+                    <th class="th">급여</th>
                     <td><input type="text" name="money"/></td>
                 </tr>
                 <tr>
-                    <th>학력</th>
+                    <th class="th">학력</th>
                     <td><input type="text" name="grade"/></td>
-                    <th>고용형태</th>
+                    <th class="th">고용형태</th>
                     <td><input type="text" name="diversification"/></td>
                 </tr>
                 <tr>
-                    <th>경력</th>
+                    <th class="th">경력</th>
                     <td><input type="text" name="career"/></td>
-                    <th>근무시간</th>
+                    <th class="th">근무시간</th>
                     <td><input type="text" name="time"/></td>
                 </tr>
                 <tr>
-                    <th>직무내용</th>
+                    <th class="th">직무내용</th>
                     <td><input type="text" name="content"/></td>
                 </tr>
                 <tr>
-                    <th>기타</th>
+                    <th class="th">기타</th>
                     <td>
                         <input type="text" name="etc"/>
                     </td>
@@ -118,8 +150,8 @@
             </table>
         </div>
     </div>
-    <input type="submit" value="작성"/>
+    <a class='co_create'>
+        <button type="submit">작성</button>
+    </a>
     </form>
-</body>
-</html>
 {%endblock%}

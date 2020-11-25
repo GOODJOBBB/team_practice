@@ -21,7 +21,7 @@
 button:hover {
     background-color: rgb(241, 130, 3);
     color: #ffffff;
-  }
+}
 
 
 button {
@@ -37,7 +37,7 @@ button {
     padding-bottom: 7px;
     position: relative;
     text-transform: uppercase;
-  }
+}
 
   
 button::before,
