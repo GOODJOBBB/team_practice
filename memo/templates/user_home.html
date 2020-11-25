@@ -1,17 +1,19 @@
-{% extends 'base.html' %} <!--template 상속,확장하는 경우에는 extends를 먼저 작성해줍니다.-->
-{% load static %}  <!--static 요소들을 가져오기 위해서 load해줍니다.-->
+{% extends 'base.html' %}
+<!--template 상속,확장하는 경우에는 extends를 먼저 작성해줍니다.-->
+{% load static %}
+<!--static 요소들을 가져오기 위해서 load해줍니다.-->
 
 {% block extrahead %}
 <link rel="stylesheet" href="{% static 'css/user_home.css' %}">
 <!-- 각 페이지별로 고유하게 들어갈 head tag를 입력해줍니다. -->
 {% endblock %}
 
-{% block title %} 
+{% block title %}
 굿잡 개인 메인
 {% endblock %}
 <!-- base.html에서 만들었던 title block부분에 각 페이지별로 다른 title을 입려해줄수 있습니다. -->
 
-{% block user_logo %} 
+{% block user_logo %}
 <a href="{% url 'user_home' %}">
   <span>GOOD </span><span class="logo1">JOB</span>
 </a>
@@ -22,7 +24,7 @@
 
 {% block nav_profile %}
 <img class="pro_box" src="{% static 'image/lion.jpg' %}" />
-{% endblock %}               
+{% endblock %}
 
 {% block nav_name %}
 <p class="nav_name">user</p>
@@ -30,26 +32,26 @@
 
 {% block nav_info %}
 <p class="user_login">
-  
-  <form method="POST">
-    <div class="int-area">
-        <label for="id" class="labelid">아이디</label>
-        <input type="text" name="id" id="id" autocomplete="off" required width="300px">
-    </div>
 
-    <div class="int-area">
-        <label for="pw" class="labelpw">비밀번호</label>
-        <input type="password" name="pw" id="pw" autocomplete="off" required>
+<form method="POST">
+  <div class="int-area">
+    <label for="id" class="labelid">아이디</label>
+    <input type="text" name="id" id="id" autocomplete="off" required width="300px">
+  </div>
 
-    </div>
+  <div class="int-area">
+    <label for="pw" class="labelpw">비밀번호</label>
+    <input type="password" name="pw" id="pw" autocomplete="off" required>
 
-    <div class="btn-area">
-        <button class="enroll_btn" type="submit">LOGIN</button>
-    </div>
+  </div>
+
+  <div class="btn-area">
+    <button class="enroll_btn" type="submit">LOGIN</button>
+  </div>
 
 </form>
 
-<a class="u_sign_up" href="{% url 'user_sign_up' %}">
+<a class="u_sign_up" href="{% url 'user_signup' %}">
   <button class="enroll_btn" type="submit">회원가입</button>
 </a>
 
@@ -91,6 +93,7 @@
 안에 내용만 바꿔서 보여줄 수 있습니다. -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="{% static 'css/user_home.css' %}" />
@@ -98,24 +101,27 @@
   <script src="{% static 'js/custom.js' %}"></script>
   <title>Document</title>
 </head>
+
 <body>
-<div id="main" class='my'>
-  <h1>개인 메인 페이지</h1>
-  <div class="contents">
-    {% for i in all_memo %}
-    <div class="box">
-      <a  href=""> </a>
+  <div id="main" class='my'>
+    <h1>개인 메인 페이지</h1>
+    <div class="contents">
+      {% for i in all_memo %}
+      <div class="box">
+        <a href=""> </a>
 
-      <img src="{% if i.pic %} {{i.pic.url}} {% else %} {% static 'image/lion.jpg' %} {% endif %}"  alt="logo">
+        <img src="{% if i.pic %} {{i.pic.url}} {% else %} {% static 'image/lion.jpg' %} {% endif %}" alt="logo">
 
 
-      <a href="{% url 'user_detail' i.id %}"><h3>{{i.company}}</h3></a>
-      <p>{{i.etc}}</p>
+        <a href="{% url 'user_detail' i.id %}">
+          <h3>{{i.company}}</h3>
+        </a>
+        <p>{{i.etc}}</p>
+      </div>
+      {%endfor%}
     </div>
-    {%endfor%}
   </div>
-</div>
-<!-- <a href="{% url 'new' %}"> 
+  <!-- <a href="{% url 'new' %}"> 
   <h2>메모하기</h2>
 </a>
 
@@ -142,11 +148,12 @@
 {%endfor%}
  -->
 
-<!-- <form method="POST">
+  <!-- <form method="POST">
   {% csrf_token %}
   <input type="text" name="mydata" />
   <input type="submit" value="POST로 제출!" />
 </form> -->
 </body>
+
 </html>
 {% endblock %}

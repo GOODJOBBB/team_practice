@@ -1,17 +1,19 @@
-{% extends 'base.html' %} <!--template 상속,확장하는 경우에는 extends를 먼저 작성해줍니다.-->
-{% load static %}  <!--static 요소들을 가져오기 위해서 load해줍니다.-->
+{% extends 'base.html' %}
+<!--template 상속,확장하는 경우에는 extends를 먼저 작성해줍니다.-->
+{% load static %}
+<!--static 요소들을 가져오기 위해서 load해줍니다.-->
 
 {% block extrahead %}
 <link rel="stylesheet" href="{% static 'css/co_sign_up.css' %}">
 <!-- 각 페이지별로 고유하게 들어갈 head tag를 입력해줍니다. -->
 {% endblock %}
 
-{% block title %} 
+{% block title %}
 굿잡 기업 회원가입
 {% endblock %}
 <!-- base.html에서 만들었던 title block부분에 각 페이지별로 다른 title을 입려해줄수 있습니다. -->
 
-{% block user_logo %} 
+{% block user_logo %}
 <a href="{% url 'index' %}">
   <span>GOOD </span><span class="logo1">JOB</span>
 </a>
@@ -23,12 +25,10 @@
 {% block contents %}
 <h1>기업 로그인</h1>
 <form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="로그인"/>
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" value="로그인" />
 </form>
 
 <a href="{% url 'co_signup' %}">회원가입</a>
 {% endblock %}
-
-
